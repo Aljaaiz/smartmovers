@@ -1,0 +1,77 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin-bottom: 60px; /* Margin bottom by footer height */
+    background: url("https://storage.googleapis.com/bd-ae-01/buildings/15448.jpg");
+
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: fill;
+    font-family: "Nunito", sans-serif;
+    /* color: aliceblue; */
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px; /* Set the fixed height of the footer here */
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #f5f5f5;
+    margin-top: 40px;
+}
+
+#home-container {
+    display: flex;
+    height: 80%;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.541);
+    /* background: red; */
+}
+.welnote {
+    font-size: 3.5rem;
+}
+.form-div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /* width: 100%; */
+    background: rgba(29, 31, 32, 0.712);
+    color: #fff;
+    margin: 40px 0;
+    padding: 20px 50px;
+    border-radius: 5px;
+}
+.confirm-container {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* text-align: center; */
+    color: #fff;
+}
+
+#display-msg {
+    padding: 50px 0;
+    background: #000;
+}
+.tbback {
+    background: rgb(240, 240, 240);
+}
+#table {
+    margin-bottom: 30px;
+}
+.action {
+    text-decoration: none !important;
+    font-weight: 500;
+    color: aquamarine;
+}
+.fw {
+    font-weight: 500;
+}
