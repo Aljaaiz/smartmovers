@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use auth;
+// use auth;
 use App\Models\Movers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 class MoversController extends Controller
@@ -79,20 +81,25 @@ class MoversController extends Controller
         return view('layouts.dashboard', ['movers' => $movers]);
     }
 
+    //Show single user details    
     public function details($ccode)
     {
         $movers = Movers::where('ccode', '=', $ccode)->first();
         return view('layouts.details', ['singleMover' => $movers]);
     }
 
+    //Status Check with CCODE
     public function statusq(Request $request)
     {
         $validated = $request->validate(['ccode' => 'required']);
-        $movers = Movers::where('ccode', '=', $request->ccode)->firstOrFail();
+        $movers = DB::table('movers as mv')
+            ->select('usr.name as usr_name',  'mv.*', 'mv.name as mv_name')
+            ->join('users as usr', 'usr.id', 'mv.user_incharge')
+            ->where('mv.ccode', $request->ccode)
+            ->first();
         if (!$movers) {
             return redirect()->back()->with(['error' => 'Error message']);
         } else {
-            // dd($movers);
             return view('layouts.status', ['singleMover' => $movers]);
         }
     }
@@ -101,18 +108,18 @@ class MoversController extends Controller
         return view('layouts.status');
     }
 
-    public function thankyou(Request $request)
+    public function thankyou()
 
     {
-        // $movers = new Movers();
-        // $movers->ccode = $request->$confirmCode;
         return view('layouts.thankyou');
     }
 
     public function update(Request $request)
     {
+        dd(Auth::user()->id);
         $status = Movers::find($request->id);
         $status->permissionStatus = $request->statusValue;
+        $status->user_incharge = Auth::user()->id;
         $status->save();
 
         return response()->json($status);

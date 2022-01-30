@@ -15,12 +15,12 @@
     /> --}}
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
     <link rel="stylesheet" href="/css/main.css">
-    <title>48Burj Movers</title>
+    <title>Smart Movers</title>
 </head>
 <body> 
  <nav class="navbar navbar-expand-lg navbar-light bg-light">
 <div class="container">
-  <a class="navbar-brand" href="/">Burj48</a>
+  <a class="navbar-brand" href="/">movers</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -44,7 +44,7 @@
 
 <footer class="footer bg-dark text-white">
 <div id="footer" class="text-center">
-    <p>All rights reserved @ <span id="year"></span></p></div>
+    <p>All rights reserved &copy; <span id="year"></span></p></div>
 </footer> --}}
 <script
   src="https://code.jquery.com/jquery-3.6.0.js"

@@ -4,13 +4,13 @@
 @section('content')
 {{-- <div class="container tbback"> --}}
 
-<div class="container">
+<div class="container" id="dashboard-header">
 <h2 class="text-center py-3">DASHBOARD</h2>
-<div class="bg-light my-3 p-3">
+<div class="bg-light my-3 p-3 d-flex justify-content-center">
   <form action="" method="GET">
     @csrf
     <input type="text" name="input ccode">
-    <button class="btn btn-lg btn-info">Search</button>
+    <button class="btn  btn-info">Search</button>
 </form>
 </div>
 </div>

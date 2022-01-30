@@ -34,10 +34,11 @@
         </ul>
 
 
-           {{-- {{ auth()->user()->name  }}
-        {{ $name ? 'yes' : 'no' }}
-                <h5 class="my-3">Signed by: </h5> --}}
-                <h6 class="my-3 ">{{ $singleMover->updated_at }}</h6>
+       
+<div class="d-flex justify-content-between">
+                {{-- <h6 class="my-3 ">Updated at: {{ $singleMover->updated_at }}</h6> --}}
+                <h6 class="my-3 text-muted">Updated_by: {{ $singleMover->usr_name }}</h6>
+</div>
         @else
             {{-- {{ $error }} --}}
             {{-- @error('error')

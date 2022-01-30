@@ -75,3 +75,6 @@ body {
 .fw {
     font-weight: 500;
 }
+#dashboard-header {
+    background: #000;
+}
