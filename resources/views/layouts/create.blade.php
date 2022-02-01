@@ -36,6 +36,10 @@
     </div>
 </div>
 <div class="col">
+<div id="picker"> </div>
+<input type="hidden" id="result" value="">
+</div>
+<div class="col">
     <div class="form-group mb-3">
       <label for="name">Email</label>
       <input type="email" name="email" class="form-control shadow-none" value="{{ old('email') }}">
@@ -70,11 +74,22 @@
 <div class="col">
     <div class="form-group mb-3">
     <label for="">Moving Type</label>
-    <select class="custom-select mb-2" name="movingtype" class="form-control shadow-none">
+    <select  name="movingtype" class="mb-2 form-control shadow-none">
         <option value="move-in">move-in</option>
         <option value="move-out">move-out</option>
         <option value="Delivery">Delivery</option>
     </select>
+</div>
+</div>
+<div class="col">
+    <div class="form-group mb-3">
+    <label for="">Date and Time</label>
+    <input class="form-control shadow-none" rows="2" name="date" id="move_at">
+@error('date')
+    <p class="text-danger">
+       {{ $message }}
+    </p>
+@enderror
 </div>
 </div>
 <div class="col">
@@ -108,4 +123,15 @@
 </div>
 </div>
 </div>
+@endsection
+
+@section('script')
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>flatpickr('#move_at',{
+enableTime:true
+})</script>
+@endsection
+
+@section('css')
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"> 
 @endsection

@@ -31,16 +31,16 @@ class MoversController extends Controller
     public function store(Request $request)
     {
         $movers = new Movers();
-        $validated = $request->validate([
-            'name' => 'required|max:50',
-            'pnumber' => 'min:10|max:10',
-            'email' => 'required',
-            'apttype' => 'required',
-            'apartmentNo' => 'required|numeric',
-            'movingtype' => 'required',
-            'moverscompany' => 'required',
-            'movingItems' => 'required',
-        ]);
+        // $validated = $request->validate([
+        //     'name' => 'required|max:50',
+        //     'pnumber' => 'min:10|max:10',
+        //     'email' => 'required',
+        //     'apttype' => 'required',
+        //     'apartmentNo' => 'required|numeric',
+        //     'movingtype' => 'required',
+        //     'moverscompany' => 'required',
+        //     'movingItems' => 'required',
+        // ]);
 
 
         //Generate Confirm Code
@@ -51,12 +51,13 @@ class MoversController extends Controller
         $movers->apttype = $request->input('apttype');
         $movers->apartmentNo = $request->input('apartmentNo');
         $movers->movingtype = $request->input('movingtype');
+        $movers->date_time = $request->input('date');
         $movers->moverscompany = $request->input('moverscompany');
         $movers->movingItems = $request->input('movingItems');
         $movers->permissionStatus = 'Pending';
         $movers->ccode = $confirmCode;
         $movers->save();
-
+        // dd($movers);
         session(['ccode' => $movers->ccode]);
         return redirect()->route('thankyou');
     }
@@ -72,7 +73,14 @@ class MoversController extends Controller
 
     {
         // dd(auth->user());
-        $movers = Movers::simplePaginate(10);
+        $movers = Movers::all();
+        // $movers = Movers::latest()->get();
+        // $movers = DB::table('movers')
+        // ->select()
+        // ->orderBy('created_at', 'desc')
+        // ->get();
+        $movers = Movers::latest()->simplePaginate(10);
+        // ->orderByDesc('membership.start_date');
         // ->paginate(10)
         // ->orderBy('created_at')
         // ->get();
@@ -97,11 +105,17 @@ class MoversController extends Controller
             ->join('users as usr', 'usr.id', 'mv.user_incharge')
             ->where('mv.ccode', $request->ccode)
             ->first();
-        if (!$movers) {
-            return redirect()->back()->with(['error' => 'Error message']);
-        } else {
-            return view('layouts.status', ['singleMover' => $movers]);
-        }
+
+
+        // $movers = DB::table('movers as mv')
+        //     ->join('users as usr.name', 'usr.id', 'mv.user_incharge')
+        //     ->where('mv.ccode', $request->ccode)
+        //     ->first();
+        // if (!$movers) {
+        //     return redirect()->back()->with(['error' => 'Error message']);
+        // } else {
+        return view('layouts.status', ['singleMover' => $movers]);
+        // }
     }
     public function status()
     {
@@ -116,7 +130,7 @@ class MoversController extends Controller
 
     public function update(Request $request)
     {
-        dd(Auth::user()->id);
+        // dd(Auth::user()->id);
         $status = Movers::find($request->id);
         $status->permissionStatus = $request->statusValue;
         $status->user_incharge = Auth::user()->id;

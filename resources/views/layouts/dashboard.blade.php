@@ -24,7 +24,8 @@
 <th>Floor No</th>
 <th>Items to Move</th>
 <th>Moving Type</th>
-<th>Movers</th>
+<th>Date and Time</th>
+<th>Movers Company</th>
 <th>Email</th>
 <th>Phone No.</th>
 <th>Date Submitted</th>
@@ -40,6 +41,7 @@
    <td>{{ $mover['apartmentNo']}}</td>
    <td>{{ $mover['movingItems']}}</td>
    <td>{{ $mover['movingtype']}}</td>
+   <td>{{ $mover['date_time']}}</td>
    <td>{{ $mover['moverscompany']}}</td>
    <td>{{ $mover['email']}}</td>
    <td>{{ $mover['pnumber']}}</td>

@@ -9,9 +9,10 @@
 <tr>
 <th>Ccode</th>
 <th>Name</th>
-<th>Apratment/Office No</th>
+<th>Apt/Office No</th>
 <th>Items to Move</th>
 <th>Moving Type</th>
+<th>Date and Time</th>
 <th>Email</th>
 <th>Phone No.</th>
 <th>Status</th>
@@ -25,6 +26,7 @@
    <td>{{ $singleMover->apartmentNo }}</td>
    <td>{{ $singleMover->movingItems}}</td>
    <td>{{ $singleMover->movingtype}}</td>
+   <td>{{ $singleMover->date_time}}</td>
    <td>{{ $singleMover->email}}</td>
    <td>{{ $singleMover->pnumber }}</td>
    <td id="permission">{{ $singleMover->permissionStatus }}</td>

@@ -11286,20 +11286,6 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-th{
-  font-weight: 700;
- vertical-align: middle;
-}
-td{
-  vertical-align: middle;
-}
-.action{
-text-decoration: none !important;
-font-weight: bolder;
-}
 label{
-font-size: 1.1rem;
-}
-input{
-font-size:1rem;
+font-size:1.1rem;
 }

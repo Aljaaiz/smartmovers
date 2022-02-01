@@ -22,6 +22,7 @@ class CreateMoversTable extends Migration
             $table->bigInteger('pnumber');
             $table->string('apttype');
             $table->string('movingtype');
+            // $table->date('date_time');
             $table->integer('apartmentNo');
             $table->string('moverscompany');
             $table->string('movingItems');

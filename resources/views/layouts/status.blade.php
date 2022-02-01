@@ -15,7 +15,7 @@
         <input type="text" name="ccode" class="form-control btn-lg mb-3" placeholder="Input your application code">
         <button type="submit" class="btn btn-primary d-grid gap-2 col-6 mx-auto mb-4 py-2">Search</button>
 </form>
-        @if(!empty($singleMover ))
+        @if(!empty($singleMover))
         <div class="card col-sm-12">
             <div class="card-body">
             <h3 class="alert alert-info text-center">{{ $singleMover->permissionStatus}}</h3>
@@ -28,6 +28,8 @@
 
 
             <li class="list-group-item"><h5 class="d-inline-block text-muted">Moving Type : </h5><h4>{{$singleMover->movingtype}}</h4></li>
+            <li class="list-group-item"><h5 class="d-inline-block text-muted">Movers Company : </h5><h4>{{$singleMover->moverscompany}}</h4></li>
+            <li class="list-group-item"><h5 class="d-inline-block text-muted">Moving Date : </h5><h4>{{$singleMover->date_time}}</h4></li>
 
             {{-- <li class="list-group-item">Moving Items :{{ $singleMover->movingItems}}</li>
             <li class="list-group-item">Moving Type:{{ }}</li> --}}
@@ -35,19 +37,20 @@
 
 
        
-<div class="d-flex justify-content-between">
+
                 {{-- <h6 class="my-3 ">Updated at: {{ $singleMover->updated_at }}</h6> --}}
-                <h6 class="my-3 text-muted">Updated_by: {{ $singleMover->usr_name }}</h6>
-</div>
+                <h4 class="my-3 text-muted text-center fw-bolder">Updated_by: {{ $singleMover->usr_name }}</h4>
+        
         @else
             {{-- {{ $error }} --}}
-            {{-- @error('error')
+            @error('error')
                 {{ $message }}
-            @enderror --}}
+            @enderror
+        @endif
         </div>
         </div>
 
-  @endif
+ 
 </div>
 </div>    
 </div>
