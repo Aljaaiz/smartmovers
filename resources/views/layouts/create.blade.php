@@ -88,8 +88,8 @@
                             <div class="col">
                                 <div class="form-group mb-3">
                                     <label for="">Date and Time</label>
-                                    <input class="form-control shadow-none" rows="2" name="date" id="move_at">
-                                    @error('date')
+                                    <input class="form-control shadow-none" rows="2" name="date_time" id="move_at">
+                                    @error('date_time')
                                         <p class="text-danger">
                                             {{ $message }}
                                         </p>

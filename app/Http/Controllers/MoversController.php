@@ -31,16 +31,17 @@ class MoversController extends Controller
     public function store(Request $request)
     {
         $movers = new Movers();
-        // $validated = $request->validate([
-        //     'name' => 'required|max:50',
-        //     'pnumber' => 'min:10|max:10',
-        //     'email' => 'required',
-        //     'apttype' => 'required',
-        //     'apartmentNo' => 'required|numeric',
-        //     'movingtype' => 'required',
-        //     'moverscompany' => 'required',
-        //     'movingItems' => 'required',
-        // ]);
+        $validated = $request->validate([
+            'name' => 'required|max:50',
+            'pnumber' => 'min:10|max:10',
+            'email' => 'required',
+            'apttype' => 'required',
+            'apartmentNo' => 'required|numeric',
+            'movingtype' => 'required',
+            'date_time' => 'required',
+            'moverscompany' => 'required',
+            'movingItems' => 'required',
+        ]);
 
 
         //Generate Confirm Code
@@ -51,7 +52,7 @@ class MoversController extends Controller
         $movers->apttype = $request->input('apttype');
         $movers->apartmentNo = $request->input('apartmentNo');
         $movers->movingtype = $request->input('movingtype');
-        $movers->date_time = $request->input('date');
+        $movers->date_time = $request->input('date_time');
         $movers->moverscompany = $request->input('moverscompany');
         $movers->movingItems = $request->input('movingItems');
         $movers->permissionStatus = 'Pending';
