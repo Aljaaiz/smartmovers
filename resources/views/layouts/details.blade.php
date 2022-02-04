@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="container my-5">
-        <h3 class="m-3 text-center fw-500">Details Confirmation Page</h3>
+        <h3 class="m-3 text-center fw-500 text-white">Tenant Confirmation Page</h3>
         <table class="table table-bordered text-center bg-light">
             <thead class="table-dark">
                 <tr>
@@ -43,7 +43,7 @@
                     </form>
                 </td>
             </tr>
-
+        </table>
     </div>
 @endsection
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="

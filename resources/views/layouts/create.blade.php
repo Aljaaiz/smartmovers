@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
 
-        <div class="col-md-10 mx-auto sm-12  bg-inverse">
+        <div class="col-md-10 mx-auto sm-12  bg-inverse" style="background-color: rgba(189, 197, 196, 0.986);padding:20px 0">
             <div class="form-div">
                 <h3 class="text-center">Please fill in the field below for your moving request</h3>
                 <div class="row d-flex justify-content-center align-items-center">
@@ -120,7 +120,8 @@
                                 </div>
                             </div>
                             <div class="d-grid">
-                                <button type="submit" class="btn  btn-info btn-block py-3 text-white">Submit</button>
+                                <button type="submit"
+                                    class="btn  btn-danger btn-block py-3 text-white fw-bolder ">Submit</button>
                             </div>
                         </form>
                     </div>

@@ -14,7 +14,8 @@
                     @enderror
                     <input type="text" name="ccode" class="form-control btn-lg mb-3"
                         placeholder="Input your application code">
-                    <button type="submit" class="btn btn-primary d-grid gap-2 col-6 mx-auto mb-4 py-2">Search</button>
+                    <button type="submit"
+                        class="btn btn-primary d-grid gap-2 col-6 mx-auto mb-4 py-2 btn-search">Search</button>
                 </form>
                 @if (!empty($singleMover))
                     <div class="card col-sm-12">
@@ -64,27 +65,33 @@
                                     <h5 class="d-inline-block text-muted">Moving Date : </h5>
                                     <h4>{{ $singleMover->date_time }}</h4>
                                 </li>
-
-                                {{-- <li class="list-group-item">Moving Items :{{ $singleMover->movingItems}}</li>
-            <li class="list-group-item">Moving Type:{{ }}</li> --}}
                             </ul>
-                            {{-- <h6 class="my-3 ">Updated at: {{ $singleMover->updated_at }}</h6> --}}
                             <h4 class="my-3 text-muted text-center fw-bolder">Updated_by: {{ $singleMover->usr_name }}
                             </h4>
-
                         @else
-                            {{-- {{ $error }} --}}
-                            @error('error')
-                                {{ $message }}
-                            @enderror
+                            <div class="card col-sm-12" id="status_error">
+                                <div class="card-body">
+                                    <h3 class="alert alert-danger text-center">
+                                        No record
+                                    </h3>
+                                </div>
+                            </div>
                 @endif
             </div>
         </div>
-
-
     </div>
     </div>
     </div>
     </div>
     </div>
+@endsection
+@section('script')
+    <script>
+        let status_error = document.getElementById('status_error');
+        status_error.style.display = 'none';
+        setTimeout(() => {
+            status_error.style.display = 'block';
+            status_error.remove()
+        }, 2000);
+    </script>
 @endsection

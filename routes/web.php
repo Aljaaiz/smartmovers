@@ -29,8 +29,7 @@ Route::post('/update/{id}/{statusvalue}', [MoversController::class, 'update']);
 // return  view('layouts.details', ['singleMover' => $movers]);
 
 Auth::routes([
-    // 'register' => false
-
+    'register' => false
 ]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

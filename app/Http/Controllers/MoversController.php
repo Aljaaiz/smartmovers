@@ -81,12 +81,6 @@ class MoversController extends Controller
         // ->orderBy('created_at', 'desc')
         // ->get();
         $movers = Movers::latest()->simplePaginate(10);
-        // ->orderByDesc('membership.start_date');
-        // ->paginate(10)
-        // ->orderBy('created_at')
-        // ->get();
-        // ->orderby('created_at', 'desc')
-        // ->get();
         return view('layouts.dashboard', ['movers' => $movers]);
     }
 
@@ -105,19 +99,26 @@ class MoversController extends Controller
             ->select('usr.name as usr_name',  'mv.*', 'mv.name as mv_name')
             ->join('users as usr', 'usr.id', 'mv.user_incharge')
             ->where('mv.ccode', $request->ccode)
+            // ->get();
             ->first();
 
-
-        // $movers = DB::table('movers as mv')
-        //     ->join('users as usr.name', 'usr.id', 'mv.user_incharge')
-        //     ->where('mv.ccode', $request->ccode)
-        //     ->first();
-        // if (!$movers) {
-        //     return redirect()->back()->with(['error' => 'Error message']);
+        // if (!$movers->isEmpty()) {
+        //     return view('layouts.status', ['singleMover' => $movers]);
+        //     // dd($movers);
         // } else {
-        return view('layouts.status', ['singleMover' => $movers]);
+        //     // dd('is mr');
+        //     return view('layouts.status', ['error' => 'error']);
         // }
+        // ->getType();
+        // if ($movers->isEmpty()) {
+        //     var_dump('is Empty');
+        // } else {
+        //     var_dump('is not Empty');
+        // }
+        // return var_dump($movers);
+        return view('layouts.status', ['singleMover' => $movers]);
     }
+
     public function status()
     {
         return view('layouts.status');
