@@ -17,7 +17,7 @@
                     <button type="submit"
                         class="btn btn-primary d-grid gap-2 col-6 mx-auto mb-4 py-2 btn-search">Search</button>
                 </form>
-                @if (!empty($singleMover))
+                @isset($singleMover)
                     <div class="card col-sm-12">
                         <div class="card-body">
                             @php
@@ -45,7 +45,7 @@
                             @endphp
                             <ul class="list-group text-center">
                                 <li class="list-group-item">
-                                    <h5 class="d-inline-block text-muted">Items to Move: </h5>
+                                    <h5 class="d-inline-block text-muted">Items to be Moved: </h5>
                                     <h4>{{ $singleMover->movingItems }}</h4>
                                 </li>
 
@@ -68,30 +68,24 @@
                             </ul>
                             <h4 class="my-3 text-muted text-center fw-bolder">Updated_by: {{ $singleMover->usr_name }}
                             </h4>
-                        @else
-                            <div class="card col-sm-12" id="status_error">
-                                <div class="card-body">
-                                    <h3 class="alert alert-danger text-center">
-                                        No record
-                                    </h3>
-                                </div>
-                            </div>
-                @endif
+
+
+                        @endisset
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     </div>
     </div>
-    </div>
-    </div>
 @endsection
 @section('script')
-    <script>
+    {{-- <script>
         let status_error = document.getElementById('status_error');
         status_error.style.display = 'none';
         setTimeout(() => {
             status_error.style.display = 'block';
             status_error.remove()
         }, 2000);
-    </script>
+    </script> --}}
 @endsection

@@ -46,61 +46,42 @@
         </table>
     </div>
 @endsection
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-crossorigin="anonymous"></script>
-<script>
-    // $(document).ready(function(){
-    //    $('#changestatus').on('change',function(){
-    //         let selectVal  = $('#changestatus').val()
-    //         console.log(selectVal);
+@section('script')
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function() {
 
-    //       $.ajax({
-    //           method:'POST',
-    //           url:"/update",
-    //       dataType:'json',
-    //       data:{
-    //         _token:'{{ csrf_token() }}',
-    //          'selectVal': selectVal,
-    //          },
-    //           success:function(res){
-    //           console.log(res);
-    //           }
-    //         })
-    //     })
-    // })
-    //Change student Status
-    $(document).ready(function() {
-
-        $('.status').change(function() {
-            var statusValue = $('.status').val()
-            let id = $('.status').attr('id');
-            // console.log(id,statusValue)
+            $('.status').change(function() {
+                var statusValue = $('.status').val()
+                let id = $('.status').attr('id');
+                // console.log(id,statusValue)
 
 
-            $.ajax({
-                url: '/update/' + id + '/' + statusValue,
-                type: 'POST',
-                datatype: 'json',
+                $.ajax({
+                    url: '/update/' + id + '/' + statusValue,
+                    type: 'POST',
+                    datatype: 'json',
 
-                data: JSON.stringify({
-                    _token: '{{ csrf_token() }}',
-                    // _method:'PUT',
-                    'id': id,
-                    'statusValue': statusValue,
-                }),
-                contentType: 'application/json ,charset=UTF-8',
-                success: function(res) {
-                    $('#permission').text(res.permissionStatus)
-                    // console.log(data) 
-                    // location.reload();
-                },
-                error: function(err) {
-                    console.log(err)
-                }
+                    data: JSON.stringify({
+                        _token: '{{ csrf_token() }}',
+                        // _method:'PUT',
+                        'id': id,
+                        'statusValue': statusValue,
+                    }),
+                    contentType: 'application/json ,charset=UTF-8',
+                    success: function(res) {
+                        $('#permission').text(res.permissionStatus)
+                        // console.log(data)
+                        // location.reload();
+                    },
+                    error: function(err) {
+                        console.log(err)
+                    }
+
+                })
 
             })
 
         })
-
-    })
-</script>
+    </script>
+@endsection

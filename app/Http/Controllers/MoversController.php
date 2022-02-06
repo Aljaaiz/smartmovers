@@ -95,28 +95,32 @@ class MoversController extends Controller
     public function statusq(Request $request)
     {
         $validated = $request->validate(['ccode' => 'required']);
+        // $movers = DB::table('movers as mv')
+        //     ->select('usr.name as usr_name',  'mv.*', 'mv.name as mv_name')
+        //     ->join('users as usr', 'usr.id', 'mv.user_incharge')
+        //     ->where('mv.ccode', $request->ccode)
+        //     ->get();
+        // ->first();
         $movers = DB::table('movers as mv')
             ->select('usr.name as usr_name',  'mv.*', 'mv.name as mv_name')
             ->join('users as usr', 'usr.id', 'mv.user_incharge')
             ->where('mv.ccode', $request->ccode)
-            // ->get();
             ->first();
+        if ($movers) {
+            // dd($movers);
+            return view('layouts.status', ['singleMover' => $movers]);
+        } elseif ($movers_2 = Movers::where('ccode', '=', $request->ccode)->first()) {
+            return view('layouts.status', ['singleMover' => $movers_2]);
+        } else {
+            return view('layouts.status', ['singleMover' => ['error' => "Error msg"]]);
+        }
 
-        // if (!$movers->isEmpty()) {
-        //     return view('layouts.status', ['singleMover' => $movers]);
-        //     // dd($movers);
-        // } else {
-        //     // dd('is mr');
-        //     return view('layouts.status', ['error' => 'error']);
-        // }
-        // ->getType();
-        // if ($movers->isEmpty()) {
-        //     var_dump('is Empty');
-        // } else {
-        //     var_dump('is not Empty');
-        // }
-        // return var_dump($movers);
-        return view('layouts.status', ['singleMover' => $movers]);
+
+
+
+
+
+        // return view('layouts.status', ['singleMover' => $movers]);
     }
 
     public function status()

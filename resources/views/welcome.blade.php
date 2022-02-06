@@ -4,9 +4,9 @@
 
 
     <div class="container main-cont">
-        <div class=" my-5 py-5 main-div d-flex just-content-center flex-column align-items-center text-center"
+        <div class=" my-5 py-5 main-div d-flex just-content-center flex-column align-items-center text-center text-white"
             id="home-container">
-            <h1 class="welnote">Welcome to Smart Movers <br />portals</h1>
+            <h1 class="welnote">Welcome to 48BurjGate<br /> Smart Movers portal</h1>
             {{-- @if (session('msg'))
                 <h4 class="alert alert-success">
                     <p>{{ session('msg') }}</p>
