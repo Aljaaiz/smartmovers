@@ -7,7 +7,7 @@
             <div class="form-div">
                 <h3 class="text-center">Please fill in the field below for your moving request</h3>
                 <div class="row d-flex justify-content-center align-items-center">
-                    <div class="col-md-6 py-4 justify-content-center align-items-center">
+                    <div class="col-md-6 py-4 px-5 justify-content-center align-items-center">
 
                         <form action="{{ route('store') }}" method="POST">
 
