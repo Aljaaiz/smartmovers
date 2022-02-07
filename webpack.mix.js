@@ -1,5 +1,5 @@
 const mix = require('laravel-mix');
-const moment = require('moment');
+
 
 /*
  |--------------------------------------------------------------------------
