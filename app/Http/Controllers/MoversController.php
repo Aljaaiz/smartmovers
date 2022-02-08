@@ -112,12 +112,9 @@ class MoversController extends Controller
         } elseif ($movers_2 = Movers::where('ccode', '=', $request->ccode)->first()) {
             return view('layouts.status', ['singleMover' => $movers_2]);
         } else {
-            return view('layouts.status', ['singleMover' => ['error' => "Error msg"]]);
+            // dd($movers);
+            return view('layouts.status', ['singleMover' => $movers]);
         }
-
-
-
-
 
 
         // return view('layouts.status', ['singleMover' => $movers]);
@@ -129,7 +126,6 @@ class MoversController extends Controller
     }
 
     public function thankyou()
-
     {
         return view('layouts.thankyou');
     }

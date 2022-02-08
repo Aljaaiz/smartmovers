@@ -17,7 +17,7 @@
                     <button type="submit"
                         class="btn btn-primary d-grid gap-2 col-6 mx-auto mb-4 py-2 btn-search">Search</button>
                 </form>
-                @isset($singleMover)
+                @if (!empty($singleMover))
                     <div class="card col-sm-12">
                         <div class="card-body">
                             @php
@@ -68,13 +68,21 @@
                             </ul>
                             <h4 class="my-3 text-muted text-center fw-bolder">Updated_by: {{ $singleMover->usr_name }}
                             </h4>
-
-
-                        @endisset
-                    </div>
-                </div>
+                        @else
+                            <div class="card">
+                                <div class="card-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <h4 class="alert alert-danger text-center">Sorry No record</h4>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                @endif
             </div>
         </div>
+    </div>
+    </div>
     </div>
     </div>
     </div>
