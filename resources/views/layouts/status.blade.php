@@ -68,16 +68,19 @@
                             </ul>
                             <h4 class="my-3 text-muted text-center fw-bolder">Updated_by: {{ $singleMover->usr_name }}
                             </h4>
-                        @else
+                            {{-- @else
                             <div class="card">
                                 <div class="card-body">
                                     <ul class="list-group">
                                         <li class="list-group-item">
-                                            <h4 class="alert alert-danger text-center">Sorry No record</h4>
+                                            @php
+                                                echo $singleMover;
+                                            @endphp
+
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div> --}}
                 @endif
             </div>
         </div>

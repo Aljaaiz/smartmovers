@@ -113,7 +113,9 @@ class MoversController extends Controller
             return view('layouts.status', ['singleMover' => $movers_2]);
         } else {
             // dd($movers);
-            return view('layouts.status', ['singleMover' => $movers]);
+            // $movers['error'] = '';
+            // dd($movers);
+            return view('layouts.error', ['singleMover' => $movers]);
         }
 
 
