@@ -41,17 +41,18 @@
                     <tbody>
                         <tr>
                             {{-- <td>{{ $mover['id'] }}</td> --}}
-                            <td>{{ $mover['apartmentNo'] }}</td>
-                            <td>{{ $mover['name'] }}</td>
-                            <td>{{ $mover['movingItems'] }}</td>
-                            <td>{{ $mover['movingtype'] }}</td>
-                            <td>{{ $mover['date_time'] }}</td>
-                            <td>{{ $mover['moverscompany'] }}</td>
-                            <td>{{ $mover['email'] }}</td>
-                            <td>{{ $mover['pnumber'] }}</td>
-                            <td>{{ $mover['created_at'] }}</td>
-                            <td>{{ $mover['permissionStatus'] }}</td>
-                            <td><a class="action" href="/details/{{ $mover['ccode'] }}">Action</a></td>
+                            <td data-label="Apartment No.">{{ $mover['apartmentNo'] }}</td>
+                            <td data-label="Name">{{ $mover['name'] }}</td>
+                            <td data-label="Moving Items">{{ $mover['movingItems'] }}</td>
+                            <td data-label="Moving Type">{{ $mover['movingtype'] }}</td>
+                            <td data-label="Apartment No.">{{ $mover['date_time'] }}</td>
+                            <td data-label="Movers Company">{{ $mover['moverscompany'] }}</td>
+                            <td data-label="Email">{{ $mover['email'] }}</td>
+                            <td data-label="Phone Number.">{{ $mover['pnumber'] }}</td>
+                            <td data-label="Created_at">{{ $mover['created_at'] }}</td>
+                            <td data-label="Permission Status">{{ $mover['permissionStatus'] }}</td>
+                            <td data-label="Action"><a class="action"
+                                    href="/details/{{ $mover['ccode'] }}">Action</a></td>
                         </tr>
                     </tbody>
                 @endforeach

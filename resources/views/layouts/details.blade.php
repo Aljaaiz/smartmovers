@@ -20,29 +20,32 @@
                 </tr>
             </thead>
             {{-- @foreach ($singleMover as $mover) --}}
-            <tr>
-                <td>{{ $singleMover->ccode }}</td>
-                <td>{{ $singleMover->name }}</td>
-                <td>{{ $singleMover->apartmentNo }}</td>
-                <td>{{ $singleMover->movingItems }}</td>
-                <td>{{ $singleMover->movingtype }}</td>
-                <td>{{ $singleMover->date_time }}</td>
-                <td>{{ $singleMover->email }}</td>
-                <td>{{ $singleMover->pnumber }}</td>
-                <td id="permission">{{ $singleMover->permissionStatus }}</td>
-                <td>
-                    <form action="/update/{id}/{statusValue}" method="POST">
-                        @csrf
-                        <select name="status" class="status" id="{{ $singleMover->id }}">
-                            <option value="">---Choose---</option>
-                            <option value="Approved">Approved</option>
-                            <option value="Not Allow">Not Allow</option>
-                            <option value="Check with Office">Check with Office</option>
-                            <option value="Pending">Pending</option>
-                        </select>
-                    </form>
-                </td>
-            </tr>
+            <tbody>
+                <tr>
+                    <td>{{ $singleMover->ccode }}</td>
+                    <td>{{ $singleMover->name }}</td>
+                    <td>{{ $singleMover->apartmentNo }}</td>
+                    <td>{{ $singleMover->movingItems }}</td>
+                    <td>{{ $singleMover->movingtype }}</td>
+                    <td>{{ $singleMover->date_time }}</td>
+                    <td>{{ $singleMover->email }}</td>
+                    <td>{{ $singleMover->pnumber }}</td>
+                    <td id="permission">{{ $singleMover->permissionStatus }}</td>
+                    <td>
+                        <form action="/update/{id}/{statusValue}" method="POST">
+                            @csrf
+                            <select name="status" class="status" id="{{ $singleMover->id }}">
+                                <option value="">---Choose---</option>
+                                <option value="Approved">Approved</option>
+                                <option value="Not Allow">Not Allow</option>
+                                <option value="Check with Office">Check with Office</option>
+                                <option value="Pending">Pending</option>
+                            </select>
+                        </form>
+                    </td>
+                </tr>
+
+            </tbody>
         </table>
     </div>
 @endsection
