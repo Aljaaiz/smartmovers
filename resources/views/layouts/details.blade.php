@@ -22,16 +22,16 @@
             {{-- @foreach ($singleMover as $mover) --}}
             <tbody>
                 <tr>
-                    <td>{{ $singleMover->ccode }}</td>
-                    <td>{{ $singleMover->name }}</td>
-                    <td>{{ $singleMover->apartmentNo }}</td>
-                    <td>{{ $singleMover->movingItems }}</td>
-                    <td>{{ $singleMover->movingtype }}</td>
-                    <td>{{ $singleMover->date_time }}</td>
-                    <td>{{ $singleMover->email }}</td>
-                    <td>{{ $singleMover->pnumber }}</td>
-                    <td id="permission">{{ $singleMover->permissionStatus }}</td>
-                    <td>
+                    <td data-label="Ccode">{{ $singleMover->ccode }}</td>
+                    <td data-label="Name">{{ $singleMover->name }}</td>
+                    <td data-label="Apartment No">{{ $singleMover->apartmentNo }}</td>
+                    <td data-label="Items to be moved">{{ $singleMover->movingItems }}</td>
+                    <td data-label="Moving Type">{{ $singleMover->movingtype }}</td>
+                    <td data-label="Date">{{ $singleMover->date_time }}</td>
+                    <td data-label="Email">{{ $singleMover->email }}</td>
+                    <td data-label="Phone No.">{{ $singleMover->pnumber }}</td>
+                    <td data-label="Permission Status" id="permission">{{ $singleMover->permissionStatus }}</td>
+                    <td data-label="Action">
                         <form action="/update/{id}/{statusValue}" method="POST">
                             @csrf
                             <select name="status" class="status" id="{{ $singleMover->id }}">
