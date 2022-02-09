@@ -3,7 +3,9 @@
 
 @section('content')
     <div class="container my-5">
-        <h3 class="m-3 text-center fw-500 text-white">Tenant Confirmation Page</h3>
+        <div class="col bg-dark text-white py-2 mb-2">
+            <h3 class="m-3 text-center fw-500 text-white">Confirmation Page</h3>
+        </div>
         <table class="table table-bordered text-center bg-light">
             <thead class="table-dark">
                 <tr>

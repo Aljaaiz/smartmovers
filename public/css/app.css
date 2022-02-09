@@ -311,7 +311,7 @@ tfoot,
 th,
 thead,
 tr {
-    /* border: 0 solid; */
+    border: 0 solid;
     border-color: inherit;
 }
 label {
@@ -9856,6 +9856,7 @@ fieldset:disabled .btn {
         border: 1px solid #6c757d;
     }
     table tr {
+        border: 0;
         margin-bottom: 20px;
     }
     .table td:before {

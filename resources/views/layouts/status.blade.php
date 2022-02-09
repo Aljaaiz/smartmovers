@@ -15,7 +15,7 @@
                     <input type="text" name="ccode" class="form-control btn-lg mb-3"
                         placeholder="Input your application code">
                     <button type="submit"
-                        class="btn btn-primary d-grid gap-2 col-6 mx-auto mb-4 py-2 btn-search">Search</button>
+                        class="btn btn-info text-white fw-bolder fs-4 d-grid gap-2 col-6 mx-auto mb-4 py-2 btn-search">Search</button>
                 </form>
                 @if (!empty($singleMover))
                     <div class="card col-sm-12">
