@@ -311,7 +311,7 @@ tfoot,
 th,
 thead,
 tr {
-    border: 0 solid;
+    /* border: 0 solid; */
     border-color: inherit;
 }
 label {
@@ -9834,11 +9834,11 @@ fieldset:disabled .btn {
     }
 }
 @media (max-width: 700px) {
-    body {
-        /* background: red !important; */
-    }
     table tr th {
         display: none;
+    }
+    table {
+        border-collapse: collapse;
     }
     table,
     tbody,
@@ -9846,15 +9846,14 @@ fieldset:disabled .btn {
     td {
         display: block;
         width: 100% !important;
-        border-bottom: 1px solid green;
         padding: 3%;
-        border-bottom: 1px solid green;
     }
 
     .table tbody tr td {
         text-align: right;
         padding-left: 50%;
         position: relative;
+        border: 1px solid #6c757d;
     }
     table tr {
         margin-bottom: 20px;
@@ -9865,5 +9864,6 @@ fieldset:disabled .btn {
         left: 0;
         font-weight: bold;
         font-size: 1rem;
+        padding-left: 0.5rem;
     }
 }

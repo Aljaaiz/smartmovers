@@ -51,7 +51,7 @@
                             <td data-label="Phone Number.">{{ $mover['pnumber'] }}</td>
                             <td data-label="Created_at">{{ $mover['created_at'] }}</td>
                             <td data-label="Permission Status">{{ $mover['permissionStatus'] }}</td>
-                            <td data-label="Action"><a class="action"
+                            <td data-label="Action"><a class="action btn btn-info text-white fw-bold"
                                     href="/details/{{ $mover['ccode'] }}">Action</a></td>
                         </tr>
                     </tbody>

@@ -35,7 +35,7 @@
                         <form action="/update/{id}/{statusValue}" method="POST">
                             @csrf
                             <select name="status" class="status" id="{{ $singleMover->id }}">
-                                <option value="">---Choose---</option>
+                                <option value="">---Select---</option>
                                 <option value="Approved">Approved</option>
                                 <option value="Not Allow">Not Allow</option>
                                 <option value="Check with Office">Check with Office</option>
