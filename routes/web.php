@@ -26,10 +26,11 @@ Route::get('/status/', [MoversController::class, 'status'])->name('status');
 Route::get('/login/', [LoginController::class, 'login'])->name('login');
 
 Route::post('/update/{id}/{statusvalue}', [MoversController::class, 'update']);
+Route::get('/sccode/{ccode}', [MoversController::class, 'sccode']);
 // return  view('layouts.details', ['singleMover' => $movers]);
 
 Auth::routes([
-    'register' => true
+    // 'register' => true
 ]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

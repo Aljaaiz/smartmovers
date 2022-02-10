@@ -5,15 +5,15 @@
     {{-- <div class="container tbback"> --}}
     <div class="container">
         <div class="col  bg-white">
-            <h2 class="text-center py-3">DASHBOARD</h2>
+            <h2 class="text-center py-3 bg-dark text-white">DASHBOARD</h2>
         </div>
     </div>
     <div class="container" id="dashboard-header">
 
-        {{-- <div class="bg-light my-3 p-3 d-flex justify-content-center">
-            <form action="" method="GET">
+        {{-- <div class="bg-light my-3  d-flex justify-content-center">
+            <form action="/sccode/{{ 'ccode' }}" method="GET">
                 @csrf
-                <input type="text" name="input ccode">
+                <input type="text" name="ccode">
                 <button class="btn  btn-info">Search</button>
             </form>
         </div> --}}
