@@ -9,7 +9,7 @@
                 <div class="row d-flex justify-content-center align-items-center">
                     <div class="col-md-6 py-4 px-5 justify-content-center align-items-center">
 
-                        <form action="{{ route('store') }}" method="POST">
+                        <form action="{{ route('store') }}" method="POST" enctype="multipart/form-data">
 
                             @csrf
 
@@ -119,11 +119,23 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="col">
+                                <div class="form-group mb-3">
+                                    <label for="">Image </label>
+                                    <input type="file" name="image" id="image">
+                                    @error('movingItems')
+                                        <p class="text-danger">
+                                            {{ $message }}
+                                        </p>
+                                    @enderror
+                                </div>
+                            </div>
                             <div class="d-grid">
                                 <button type="submit"
                                     class="btn  btn-danger btn-block py-3 text-white fw-bolder ">Submit</button>
                             </div>
                         </form>
+
                     </div>
                 </div>
             </div>

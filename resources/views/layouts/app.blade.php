@@ -77,7 +77,7 @@
                                     <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
                                     <a class="dropdown-item" href="{{ route('status') }}">Track</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
+                                                                        document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -97,7 +97,6 @@
             @yield('content')
         </main>
     </div>
-    @yield('script')
     <footer class="footer bg-dark text-white mt-auto">
         <div id="footer" class="text-center">
             <p class="mt-2">All rights reserved &copy; <span id="year"></span></p>
@@ -105,11 +104,12 @@
         </div>
     </footer>
 
-    <script>
-        let today = new Date()
-        let y = today.getFullYear()
-        document.getElementById('year').textContent = y;
-    </script>
 </body>
 
 </html>
+@yield('script')
+<script>
+    let today = new Date()
+    let y = today.getFullYear()
+    document.getElementById('year').textContent = y;
+</script>

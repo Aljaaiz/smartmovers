@@ -30,8 +30,13 @@ class MoversController extends Controller
     }
     public function store(Request $request)
     {
+
+        // $test = $request->file('image')->getSize();
+
+        // dd($test);
+        // dd($request->all());
         $movers = new Movers();
-        $validated = $request->validate([
+        $request->validate([
             'name' => 'required|max:50',
             'pnumber' => 'min:10|max:10',
             'email' => 'required',
@@ -41,8 +46,11 @@ class MoversController extends Controller
             'date_time' => 'required',
             'moverscompany' => 'required',
             'movingItems' => 'required',
+            'image' => 'required|mimes:jpg,png,jpeg|max:5045'
         ]);
-
+        $newImageName = time() . '-' . $request->name . '.' . $request->image->extension();
+        //Move image to different Folder
+        $request->image->move(public_path('images'), $newImageName);
 
         //Generate Confirm Code
         $confirmCode = MoversController::secure_random_string(6);
@@ -57,6 +65,7 @@ class MoversController extends Controller
         $movers->movingItems = $request->input('movingItems');
         $movers->permissionStatus = 'Pending';
         $movers->ccode = $confirmCode;
+        $movers->image_path = $newImageName;
         $movers->save();
         // dd($movers);
         session(['ccode' => $movers->ccode]);
@@ -75,11 +84,6 @@ class MoversController extends Controller
     {
         // dd(auth->user());
         $movers = Movers::all();
-        // $movers = Movers::latest()->get();
-        // $movers = DB::table('movers')
-        // ->select()
-        // ->orderBy('created_at', 'desc')
-        // ->get();
         $movers = Movers::latest()->simplePaginate(10);
         return view('layouts.dashboard', ['movers' => $movers]);
     }
@@ -94,6 +98,8 @@ class MoversController extends Controller
     //Status Check with CCODE
     public function statusq(Request $request)
     {
+
+
         $validated = $request->validate(['ccode' => 'required']);
         // $movers = DB::table('movers as mv')
         //     ->select('usr.name as usr_name',  'mv.*', 'mv.name as mv_name')
@@ -141,8 +147,46 @@ class MoversController extends Controller
         $status->save();
 
         return response()->json($status);
-        // $status = Movers::findOrfail($id);
-        // return view('layouts.details', ['singleMover' =>  $status]);
-        // return view('layouts.details');
+    }
+    public function dashboardSearch(Request $request)
+    {
+        // dd($request->value);
+        $movers = DB::table('movers')
+            ->where('ccode', 'LIKE', '%' . $request->value . '%')->get();
+        return  response()->json($movers);
+        // return json_decode($movers);
+        // $data = Movers::where('ccode', 'LIKE',  $request->ccode . '%')->get();
+        // dd($data);
+        //     $output = '';
+
+        //     if (count($data) > 0) {
+
+        //         $output = '<ul class="list-group" style="display: block; position: relative; z-index: 1">';
+
+        //         foreach ($data as $row) {
+
+        //             $output .= '<li class="list-group-item">' . $row->name . '</li>';
+        //         }
+
+        //         $output .= '</ul>';
+        //     } else {
+
+        //         $output .= '<li class="list-group-item">' . 'No results' . '</li>';
+        //     }
+
+        //     return $output;
+        // }
+
+        // dd($request);
+        // dd(Auth::user()->id);
+        // dd($request->ccode);
+        // $ccode = $request->ccode;
+        // $status = Movers::where('ccode', '=', $ccode)->first();
+        // dd($status);
+        // $status->permissionStatus = $request->statusValue;
+        // $status->user_incharge = Auth::user()->id;
+        // $status->save();
+
+        // return response()->json($status);
     }
 }

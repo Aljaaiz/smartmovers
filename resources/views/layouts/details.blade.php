@@ -6,6 +6,7 @@
         <div class="col bg-dark text-white py-2 mb-2">
             <h3 class="m-3 text-center fw-500 text-white">Confirmation Page</h3>
         </div>
+
         <table class="table table-bordered text-center bg-light">
             <thead class="table-dark">
                 <tr>
@@ -49,6 +50,9 @@
 
             </tbody>
         </table>
+        <div id="imageDiv" class="text-center mb-3">
+            <img src="{{ asset('images/' . $singleMover->image_path) }}" alt="" class="img-fluid">
+        </div>
     </div>
 @endsection
 @section('script')

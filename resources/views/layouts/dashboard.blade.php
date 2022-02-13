@@ -9,14 +9,16 @@
         </div>
     </div>
     <div class="container" id="dashboard-header">
-
-        {{-- <div class="bg-light my-3  d-flex justify-content-center">
-            <form action="/sccode/{{ 'ccode' }}" method="GET">
-                @csrf
-                <input type="text" name="ccode">
-                <button class="btn  btn-info">Search</button>
-            </form>
-        </div> --}}
+        <div class="col-8 mx-auto">
+            <div class="bg-light my-3  d-flex justify-content-center">
+                <form action="" method="POST">
+                    @csrf
+                    <input class="form-control d-block" type="text" name="ccode" id="dashSearch" placeholder="Search records"
+                        w-100>
+                    {{-- <button class="btn  btn-info btnSearch">Search</button> --}}
+                </form>
+            </div>
+        </div>
     </div>
     <div class="container">
         <div class="">
@@ -38,7 +40,7 @@
                     </tr>
                 </thead>
                 @foreach ($movers as $mover)
-                    <tbody>
+                    <tbody id="tbody-row">
                         <tr>
                             {{-- <td>{{ $mover['id'] }}</td> --}}
                             <td data-label="Apartment No.">{{ $mover['apartmentNo'] }}</td>
@@ -63,4 +65,54 @@
 
     {{-- </div> --}}
 
+@endsection
+@section('script')
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('body').on('keyup', '#dashSearch', function() {
+                let value = $(this).val();
+                $('#tbody-row').html('')
+                console.log(value);
+                $.ajax({
+                    url: ' {{ route('dashboardSearch') }}',
+                    type: 'POST',
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        value: value
+
+                    },
+                    dataType: 'json',
+                    success: function(res) {
+                        var output = ''
+                        // $('#tbody-row').html('')
+
+                        $.each(res, function(index, data) {
+                            console.log(data);
+                            output = ` <tr>
+                            {{-- <td>{{ $mover['id'] }}</td> --}}
+                            <td data-label="Apartment No.">${data.apartmentNo}</td>
+                            <td data-label="Name">${data.name}</td>
+                            <td data-label="Moving Items">${data.movingItems}</td>
+                            <td data-label="Moving Type">${data.movingtype}</td>
+                            <td data-label="Apartment No.">${data.date_time}</td>
+                            <td data-label="Movers Company">${data.moverscompany}</td>
+                            <td data-label="Email">${data.email}</td>
+                            <td data-label="Phone Number.">${data.pnumber}</td>
+                            <td data-label="Created_at">${data.name}</td>
+                            <td data-label="Permission Status">${data.permissionStatus}</td>
+                            <td data-label="Action"><a class="action btn btn-info text-white fw-bold"
+                                    href="/details/${data.ccode}">Action</a></td>
+                        </tr>`
+                            $('#tbody-row').append(output);
+                        })
+
+                    },
+                    error: function(err) {
+
+                    }
+                })
+            });
+        })
+    </script>
 @endsection

@@ -9868,3 +9868,6 @@ fieldset:disabled .btn {
         padding-left: 0.5rem;
     }
 }
+#imageDiv img {
+    height: 400px;
+}
